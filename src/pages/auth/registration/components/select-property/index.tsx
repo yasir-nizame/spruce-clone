@@ -1,0 +1,51 @@
+import { Form } from "antd";
+import AuthLayout from "../../../../../components/layouts/auth-layout";
+import Cheading from "../../../../../components/atoms/c-heading";
+import Cbutton from "../../../../../components/atoms/c-button";
+import CLabelInput from "../../../../../components/atoms/c-label";
+import ZipCode from "../zip-code";
+import PropertyCard from "../../../../../components/property-card";
+// import Csteps from "../../../../../components/atoms/c-steps";
+
+const SelectProperty = () => {
+  return (
+    <>
+      <AuthLayout>
+        <Cheading
+          text="Registration"
+          className="!text-primary !font-bold !text-[28px] !mb-0"
+        />
+
+        <Form layout={"vertical"}>
+          <CLabelInput
+            label="Enter Zip Code"
+            name="Zip Code"
+            placeholder="113345"
+            type="text"
+          />
+          <div className="grid gap-y-[15px] my-4">
+            <PropertyCard
+              title="Upside Avenue"
+              content="1901 Thornridge Cir. Shiloh, Hawaii 81063"
+              className="rounded-sm"
+            />
+            <PropertyCard
+              title="Downside Avenue"
+              content="1901 Thornridge Cir. Shiloh, Hawaii 81063"
+              className="rounded-sm"
+            />
+            <PropertyCard
+              title="Regalia Plaza"
+              content="1901 Thornridge Cir. Shiloh, Hawaii 81063"
+              className="rounded-sm"
+            />
+          </div>
+
+          <Cbutton label="Next" type="primary" size="large" />
+        </Form>
+        <p className="text-center !my-8">Back to Login</p>
+      </AuthLayout>
+    </>
+  );
+};
+export default SelectProperty;

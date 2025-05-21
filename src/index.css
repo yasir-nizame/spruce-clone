@@ -5,8 +5,16 @@
   --color-gray: #f9f9f9;
 }
 
-* {
-  font-family: sf-pro !important;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+  margin: 0 0;
+  padding: 0 0;
 }
 
 body {
@@ -17,10 +25,32 @@ body {
   scroll-behavior: "smooth";
 }
 
+* {
+  font-family: sf-pro, "sans-serif" !important;
+}
+
+body {
+  padding: 0 0;
+  margin: 0 0;
+  width: 100%;
+  height: 100%;
+  scroll-behavior: "smooth";
+}
+
+.custom-heading {
+  font-family: sf-pro !important;
+  font-weight: 700;
+}
+
 @font-face {
   font-family: sf-pro;
   src: url("../src/assets/fonts/sf-pro-font/SFPRODISPLAYREGULAR.OTF");
-  font-weight: regular;
+  font-weight: 400;
+}
+@font-face {
+  font-family: sf-pro;
+  src: url("../src/assets/fonts/sf-pro-font/SFPRODISPLAYBOLD.OTF");
+  font-weight: 600;
 }
 
 .bg-red {

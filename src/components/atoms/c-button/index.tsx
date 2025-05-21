@@ -5,7 +5,7 @@ import type { ButtonProps } from "antd";
 interface CbuttonProps extends ButtonProps {
   label: string;
   className?: string;
-  onClick: () => void;
+  onClick?: () => void;
   type?: "primary" | "dashed" | "link" | "text" | "default";
 }
 

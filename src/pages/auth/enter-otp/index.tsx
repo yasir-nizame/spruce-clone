@@ -2,7 +2,6 @@ import Cbutton from "../../../components/atoms/c-button";
 import Cheading from "../../../components/atoms/c-heading";
 import { Form, Input } from "antd";
 import AuthLayout from "../../../components/layouts/auth-layout";
-import CLabelInputPassword from "../../../components/atoms/c-labelinput-password";
 const handleClick = () => {
   console.log("Login Clicked");
 };
@@ -19,29 +18,28 @@ const EnterOTP = () => {
           Please enter the code we just sent to email
         </p>
         <Form layout={"vertical"}>
-          <div className="my-4 ">
-            <CLabelInputPassword
-              label="New Password"
-              name="password"
-              placeholder="********"
-              type="password"
-            />
-            <CLabelInputPassword
-              label="Confirm Password"
-              name="confirmpassword"
-              placeholder="********"
-              type="password"
-            />
-          </div>
+          <Form.Item>
+            <div className="!grid !grid-cols-4 !gap-4 !mt-4  ">
+              <Input className="w-[28px] h-[56px]"></Input>
+              <Input></Input>
+              <Input></Input>
+              <Input></Input>
+            </div>
+          </Form.Item>
 
           <Cbutton
-            label="Submit"
+            label="Verify"
             type="primary"
             size="large"
             onClick={handleClick}
           />
         </Form>
-        <p className="text-center !my-8">Back to Login</p>
+        <p className="text-center !my-8">
+          We have sent you a One Time Password (OTP). Please check your email
+        </p>
+        <p className="text-center">
+          Resend code in <span className="text-primary">(00:50)</span>
+        </p>
       </AuthLayout>
     </>
   );

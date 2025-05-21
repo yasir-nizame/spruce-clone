@@ -1,7 +1,6 @@
 import Cbutton from "../../../components/atoms/c-button";
 import Cheading from "../../../components/atoms/c-heading";
-import CLabelInput from "../../../components/atoms/c-label";
-import { Form, Input } from "antd";
+import { Form } from "antd";
 import AuthLayout from "../../../components/layouts/auth-layout";
 import CLabelInputPassword from "../../../components/atoms/c-labelinput-password";
 const handleClick = () => {
@@ -15,7 +14,7 @@ const ForgotPassword = () => {
         <div></div>
         <Cheading
           text="Forgot Password"
-          className="!text-primary !font-bold !text-[28px] !mb-0"
+          className="!text-primary !font-bold !text-[28px] !mb-0 custom-heading"
         />
         <p className="font-normal text-base">Enter your new password</p>
         <Form layout={"vertical"}>

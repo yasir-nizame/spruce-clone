@@ -15,7 +15,7 @@ const SendOTP = () => {
         <div></div>
         <Cheading
           text="Forgot Password"
-          className="!text-primary !font-bold !text-[28px] !mb-0"
+          className="!text-primary !font-bold !text-[28px] !mb-0 font-sf-pro-bold"
         />
         <p className="font-normal text-base">Reset Your Password via Email</p>
         <Form layout={"vertical"}>
