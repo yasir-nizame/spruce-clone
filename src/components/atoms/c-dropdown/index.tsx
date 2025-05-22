@@ -1,60 +1,42 @@
-// import React from "react";
-// import { DownOutlined } from "@ant-design/icons";
-// import type { MenuProps } from "antd";
-// import { Dropdown, Space, Typography } from "antd";
-
-// const items: MenuProps["items"] = [
-//   {
-//     key: "1",
-//     label: "Item 1",
-//   },
-//   {
-//     key: "2",
-//     label: "Item 2",
-//   },
-//   {
-//     key: "3",
-//     label: "Item 3",
-//   },
-// ];
-
-// const Cdropdown: React.FC = () => (
-//   <Dropdown
-//     menu={{
-//       items,
-//       selectable: true,
-//       defaultSelectedKeys: ["3"],
-//     }}
-//   >
-//     <Typography.Link>
-//       <Space>
-//         Selectable
-//         <DownOutlined />
-//       </Space>
-//     </Typography.Link>
-//   </Dropdown>
-// );
-
-// export default Cdropdown;
-
 import React from "react";
 import { Form, Select } from "antd";
 
 const { Option } = Select;
 
-interface CDropdownProps {}
+export interface CdropdownItem {
+  label: string;
+  value: string;
+}
 
-const Cdropdown: React.FC<CDropdownProps> = ({}) => {
+interface CdropdownProps {
+  name: string;
+  size?: "small" | "middle" | "large";
+  label?: string;
+  placeholder?: string;
+  items: CdropdownItem[];
+  rules?: any[];
+  disabled?: boolean;
+}
+
+const Cdropdown: React.FC<CdropdownProps> = ({
+  name,
+  size = "large",
+  label,
+  placeholder = "Select an option",
+  items,
+  rules = [],
+  disabled = false,
+}) => {
   return (
-    <div>
-      <Form.Item label="Property Name">
-        <Select placeholder="Upside Avenue">
-          <Option value="ABC">ABC</Option>
-          <Option value="ABCd">ABC</Option>
-          <Option value="ABCe">ABC</Option>
-        </Select>
-      </Form.Item>
-    </div>
+    <Form.Item name={name} label={label} rules={rules}>
+      <Select placeholder={placeholder} disabled={disabled} size={size}>
+        {items.map((item) => (
+          <Option key={item.label} value={item.value}>
+            {item.label}
+          </Option>
+        ))}
+      </Select>
+    </Form.Item>
   );
 };
 

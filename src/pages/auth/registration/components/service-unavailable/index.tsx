@@ -1,43 +1,21 @@
-import { Form, Steps } from "antd";
+import { Form } from "antd";
 import AuthLayout from "../../../../../components/layouts/auth-layout";
 import Cheading from "../../../../../components/atoms/c-heading";
 import Cbutton from "../../../../../components/atoms/c-button";
 import CLabelInput from "../../../../../components/atoms/c-label";
-import { useState } from "react";
-import PropertyDetails from "../property-details";
-import PersonalDetails from "../personal-details";
 // import Csteps from "../../../../../components/atoms/c-steps";
+const handleClick = () => {
+  console.log("Login Clicked");
+};
 
-const steps = [
-  {
-    title: "",
-    content: "",
-  },
-  {
-    title: "",
-    content: <PersonalDetails />,
-  },
-  {
-    title: "",
-    content: <PropertyDetails />,
-  },
-];
-const ZipCode = () => {
-  const handleClick = () => {
-    console.log("next Clicked");
-  };
-  const [current, setCurrent] = useState(0);
-
-  const items = steps.map((item) => ({ key: item.title, title: item.title }));
-
+const ServiceUnavailable = () => {
   return (
     <>
       <AuthLayout>
-        <Steps current={current} items={items} onChange={setCurrent} />
-
+        {/* <Csteps></Csteps> */}
         <Cheading
           text="Registration"
-          className="!text-primary !font-bold !text-[28px] !mb-0"
+          className="!text-primary !font-bold !text-[28px] !mb-4"
         />
 
         <Form layout={"vertical"}>
@@ -47,9 +25,20 @@ const ZipCode = () => {
             placeholder="113345"
             type="text"
           />
+          <div className="flex justify-center my-5">
+            <img src="/servicenotfound.png" alt="" />
+          </div>
+          <div className=" !my-4">
+            <p className="!mx-auto w-1/2 text-center">
+              Spruce does not currently service
+            </p>
+            <p className="!mx-auto w-1/2 text-center">
+              your area. we can email you when we do.
+            </p>
+          </div>
 
           <Cbutton
-            label="Next"
+            label="Notify me when spruce arrives"
             type="primary"
             size="large"
             onClick={handleClick}
@@ -60,4 +49,4 @@ const ZipCode = () => {
     </>
   );
 };
-export default ZipCode;
+export default ServiceUnavailable;

@@ -1,9 +1,17 @@
 import { Form } from "antd";
 import AuthLayout from "../../../../../components/layouts/auth-layout";
-import CLabelInput from "../../../../../components/atoms/c-label";
 import Cheading from "../../../../../components/atoms/c-heading";
 import Cbutton from "../../../../../components/atoms/c-button";
-import Cdropdown from "../../../../../components/atoms/c-dropdown";
+import Cdropdown, {
+  type CdropdownItem,
+} from "../../../../../components/atoms/c-dropdown";
+import CLabelInput from "../../../../../components/atoms/c-label";
+
+const properties: CdropdownItem[] = [
+  { label: "Option A", value: "a" },
+  { label: "Option B", value: "b" },
+  { label: "Option C", value: "c" },
+];
 
 const PropertyDetails = () => {
   return (
@@ -15,30 +23,51 @@ const PropertyDetails = () => {
         />
         <Form layout={"vertical"}>
           <div className="my-4 ">
-            {/* <CLabelInput
-              label="Name"
-              name="Name"
-              placeholder="Henry Arthur"
-              type="text"
+            <Cdropdown
+              name="dropdown"
+              label="Property Name"
+              items={properties}
+              // rules={[{ required: true, message: "Please select an option" }]}
+              size="large"
+              placeholder="Upside Avenue"
             />
-            <CLabelInput
-              label="Email Address"
-              name="email"
-              placeholder="henryarthur@example.com"
-              type="email"
+
+            <Cdropdown
+              name="dropdown"
+              label="Floor Plan"
+              items={properties}
+              // rules={[{ required: true, message: "Please select an option" }]}
+              size="large"
+              placeholder="2 Bed, 2 Bath"
             />
-            <CLabelInput
-              label="Phone Number"
-              name="Phone Number"
-              placeholder="(239) 555-0108"
-              type="text"
-            /> */}
-            <Cdropdown />
-            
           </div>
-          <Cbutton label="Register" type="primary" size="large" className=""/>
+          <div className="flex justify-between">
+            <CLabelInput
+              label="Building No (Optional)"
+              name="Building No"
+              placeholder="1234"
+              type="text"
+              className="!w-full"
+            />
+            <CLabelInput
+              label="Unit Number"
+              name="unit"
+              placeholder="893742"
+              type="number"
+              className="!w-full"
+            />
+          </div>
+          <Cdropdown
+            name="dropdown"
+            label="Sq Ft (Optional)"
+            items={properties}
+            // rules={[{ required: true, message: "Please select an option" }]}
+            size="large"
+            placeholder="630 Sq Ft"
+          />
+          <Cbutton label="Register" type="primary" size="large" className="" />
         </Form>
-        <p className="text-center">Back to Login</p>
+        <p className="text-center !mt-[40px]">Back to Login</p>
       </AuthLayout>
     </>
   );

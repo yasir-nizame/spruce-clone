@@ -1,12 +1,19 @@
 import Cbutton from "../../../components/atoms/c-button";
 import Cheading from "../../../components/atoms/c-heading";
-import { Form, Input } from "antd";
+import { Form} from "antd";
+import { InputOTP } from "antd-input-otp";
 import AuthLayout from "../../../components/layouts/auth-layout";
 const handleClick = () => {
   console.log("Login Clicked");
 };
 
 const EnterOTP = () => {
+  const [form] = Form.useForm();
+
+  const handleFinish = (values: number) => {
+    console.log(values);
+  };
+
   return (
     <>
       <AuthLayout>
@@ -17,13 +24,19 @@ const EnterOTP = () => {
         <p className="font-normal text-base">
           Please enter the code we just sent to email
         </p>
-        <Form layout={"vertical"}>
-          <Form.Item>
-            <div className="!grid !grid-cols-4 !gap-4 !mt-4  ">
-              <Input className="w-[28px] h-[56px]"></Input>
-              <Input></Input>
-              <Input></Input>
-              <Input></Input>
+        <Form layout={"vertical"} onFinish={handleFinish} form={form}>
+          <Form.Item label="OTP" name="otp" className="">
+            <div className="">
+              <InputOTP
+                autoSubmit={form}
+                inputType="numeric"
+                length={4}
+                inputStyle={{
+                  width: "128px",
+                  height: "58px",
+                  maxWidth: "none",
+                }}
+              />
             </div>
           </Form.Item>
 

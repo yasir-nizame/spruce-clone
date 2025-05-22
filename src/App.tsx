@@ -8,6 +8,9 @@ import ZipCode from "./pages/auth/registration/components/zip-code";
 import SelectProperty from "./pages/auth/registration/components/select-property";
 import PersonalDetails from "./pages/auth/registration/components/personal-details";
 import PropertyDetails from "./pages/auth/registration/components/property-details";
+import ServiceUnavailable from "./pages/auth/registration/components/service-unavailable";
+import DeleteMe from "./pages/delete";
+import SignUp from "./pages/auth/registration";
 
 function App() {
   return (
@@ -22,6 +25,9 @@ function App() {
           <Route path="/send-otp" element={<SendOTP />} />
           <Route path="/enter-otp" element={<EnterOTP />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/service-unavailable" element={<ServiceUnavailable />} />
+          <Route path="/delete" element={<DeleteMe />} />
+          <Route path="/sign-up" element={<SignUp />} />
           <Route path="/" element={<Home />} />
         </Routes>
       </BrowserRouter>
