@@ -1,6 +1,6 @@
 import React from "react";
 import { Input, Form } from "antd";
-import type { FormProps } from "antd";
+import type { FormItemProps, FormProps } from "antd";
 
 interface CLabelInputProps extends FormProps {
   label: string;
@@ -9,6 +9,7 @@ interface CLabelInputProps extends FormProps {
   placeholder?: string;
   required?: boolean;
   size?: "small" | "middle" | "large";
+  rules?: FormItemProps["rules"];
 }
 
 const CLabelInput: React.FC<CLabelInputProps> = ({

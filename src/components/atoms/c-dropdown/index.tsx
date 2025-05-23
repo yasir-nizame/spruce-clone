@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Select } from "antd";
+import { Form, message, Select } from "antd";
 
 const { Option } = Select;
 
@@ -14,7 +14,7 @@ interface CdropdownProps {
   label?: string;
   placeholder?: string;
   items: CdropdownItem[];
-  rules?: any[];
+  rules?: any;
   disabled?: boolean;
 }
 
@@ -24,7 +24,7 @@ const Cdropdown: React.FC<CdropdownProps> = ({
   label,
   placeholder = "Select an option",
   items,
-  rules = [],
+  rules,
   disabled = false,
 }) => {
   return (

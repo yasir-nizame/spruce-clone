@@ -1,16 +1,12 @@
 import { Form } from "antd";
-import AuthLayout from "../../../../../components/layouts/auth-layout";
 import Cheading from "../../../../../components/atoms/c-heading";
 import Cbutton from "../../../../../components/atoms/c-button";
 import CLabelInput from "../../../../../components/atoms/c-label";
-import ZipCode from "../zip-code";
 import PropertyCard from "../../../../../components/property-card";
-// import Csteps from "../../../../../components/atoms/c-steps";
 
 const SelectProperty = () => {
   return (
     <>
-      <AuthLayout>
         <Cheading
           text="Registration"
           className="!text-primary !font-bold !text-[28px] !mb-0"
@@ -44,7 +40,6 @@ const SelectProperty = () => {
           <Cbutton label="Next" type="primary" size="large" />
         </Form>
         <p className="text-center !my-8">Back to Login</p>
-      </AuthLayout>
     </>
   );
 };

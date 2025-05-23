@@ -38,6 +38,12 @@ const SignIn = () => {
               name="email"
               placeholder="henryarthur@example.com"
               type="email"
+              rules={[
+                {
+                  required: true,
+                  message: "Please enter your password",
+                },
+              ]}
             />
             <CLabelInputPassword
               label="Password"
