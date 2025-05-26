@@ -1,20 +1,22 @@
 import Cbutton from "../../../components/atoms/c-button";
 import Cheading from "../../../components/atoms/c-heading";
 import CLabelInput from "../../../components/atoms/c-label";
-import { Form } from "antd";
+import { Form, message } from "antd";
 import AuthLayout from "../../../components/layouts/auth-layout";
 import Ccheckbox from "../../../components/atoms/c-checkbox";
 import CLabelInputPassword from "../../../components/atoms/c-labelinput-password";
-
-const handleClick = () => {
-  console.log("Login Clicked");
-};
+import { useNavigate } from "react-router";
 
 const SignIn = () => {
+  const Navigate = useNavigate();
+  const handleClick = () => {
+    console.log("Login Clicked");
+    message.success("Login successful!");
+    Navigate("/");
+  };
   return (
     <>
       <AuthLayout>
-        <div></div>
         <Cheading
           text="Welcome to Spruce"
           className="!text-primary !font-bold !text-[28px] !mb-0"
@@ -38,23 +40,19 @@ const SignIn = () => {
               name="email"
               placeholder="henryarthur@example.com"
               type="email"
-              rules={[
-                {
-                  required: true,
-                  message: "Please enter your password",
-                },
-              ]}
+              required
             />
             <CLabelInputPassword
               label="Password"
               name="password"
               placeholder="********"
               type="password"
+              required
             />
           </div>
           <div className="flex justify-between my-6">
             <Ccheckbox text="Remember me" className="!text-base font-medium" />
-            <a href="" className="!text-primary font-medium text-base">
+            <a href="/send-otp" className="!text-primary font-medium text-base">
               Forget Password
             </a>
           </div>
@@ -93,7 +91,7 @@ const SignIn = () => {
 
         <p className="text-center">
           Don't have an account?
-          <a href="" className="text-primary ml-1">
+          <a href="/sign-up" className="text-primary ml-1">
             Register
           </a>
         </p>

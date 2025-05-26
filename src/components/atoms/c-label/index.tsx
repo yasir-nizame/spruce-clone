@@ -18,15 +18,23 @@ const CLabelInput: React.FC<CLabelInputProps> = ({
   placeholder,
   type,
   size = "large",
+  required = false,
+  rules = [],
 }) => {
+  const defaultRules: FormItemProps["rules"] = required
+    ? [{ required: true, message: `Please enter ${label.toLowerCase()}!` }]
+    : [];
+
+  const combinedRules = [...defaultRules, ...rules];
+
   return (
-    <Form.Item label={label} name={name}>
+    <Form.Item label={label} name={name} rules={combinedRules}>
       <Input
         className="px-[10px] rounded-lg w-full !font-medium"
         placeholder={placeholder}
         type={type}
         size={size}
-      ></Input>
+      />
     </Form.Item>
   );
 };

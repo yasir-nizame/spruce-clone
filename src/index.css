@@ -2,6 +2,7 @@
 
 @theme {
   --color-primary: #045d65;
+  --color-secondary: #dbf9f3; 
   --color-gray: #f9f9f9;
 }
 
@@ -69,3 +70,36 @@ body {
 }
 
 /* antd style change  */
+
+/* steps section */
+.ant-steps-item-icon {
+  background-color: #045d65 !important;
+  color: white !important;
+}
+
+.custom-icon-steps {
+  @apply grid size-[32px] place-items-center rounded-full border-2 border-solid border-primary text-base text-primary;
+}
+
+.custom-steps .ant-steps-item-active .custom-icon-steps {
+  @apply bg-white;
+}
+.custom-steps .ant-steps-item-finish .custom-icon-steps {
+  @apply bg-primary text-white;
+}
+.custom-steps .ant-steps-item-wait .custom-icon-steps {
+  @apply text-primary;
+  background-color: #e8e8e8;
+  border-color: #e8e8e8;
+}
+
+.ant-input-disabled {
+  color: #1010118e !important;
+}
+
+/* sidebar menu */
+
+.ant-menu-item-selected {
+  @apply !text-primary !font-medium;
+  background-color: #dbf9f3 !important;
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import { Input, Form } from "antd";
-import type { FormProps } from "antd";
+import type { FormItemProps, FormProps } from "antd";
 
 interface CLabelInputProps extends FormProps {
   label: string;
@@ -10,6 +10,7 @@ interface CLabelInputProps extends FormProps {
   placeholder?: string;
   required?: boolean;
   size?: "small" | "middle" | "large";
+  rules?: FormItemProps["rules"];
 }
 
 const CLabelInputPassword: React.FC<CLabelInputProps> = ({
@@ -19,10 +20,24 @@ const CLabelInputPassword: React.FC<CLabelInputProps> = ({
   type,
   className,
   size = "large",
+  required = false,
+
+  rules = [],
 }) => {
+  const defaultRules: FormItemProps["rules"] = required
+    ? [{ required: true, message: `Please enter ${label.toLowerCase()}!` }]
+    : [];
+
+  const combinedRules = [...defaultRules, ...rules];
+
   return (
-    <Form.Item label={label} name={name}>
-      <Input.Password placeholder={placeholder} type={type} size={size} className={className} />
+    <Form.Item label={label} name={name} rules={combinedRules}>
+      <Input.Password
+        placeholder={placeholder}
+        type={type}
+        size={size}
+        className={className}
+      />
     </Form.Item>
   );
 };
