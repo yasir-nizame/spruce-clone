@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "antd";
 import type { ButtonProps } from "antd";
+import { cn } from "../../../utils/tailwindhelper/tailwindhelper";
 
 interface CbuttonProps extends ButtonProps {
   label: string;
@@ -17,8 +18,12 @@ const Cbutton: React.FC<CbuttonProps> = ({
   ...rest
 }) => {
   return (
+    // className={cn(className)
     <Button
-      className={`px-[10px] !bg-primary rounded-lg  w-full`}
+      className={cn(
+        className,
+        `px-[10px] !bg-primary rounded-lg w-full !text-white`
+      )}
       type={type}
       onClick={onClick}
       {...rest}

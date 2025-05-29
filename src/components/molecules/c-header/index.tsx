@@ -1,5 +1,6 @@
-import { Layout, Avatar } from "antd";
-import { Bell, User } from "lucide-react";
+import { Layout} from "antd";
+import { Bell } from "lucide-react";
+import UserAvatar from "../../atoms/c-profile";
 
 const { Header } = Layout;
 
@@ -10,7 +11,7 @@ const Cheader = () => {
         <div className="bg-secondary rounded-full  w-[36px] h-[36px] flex justify-center items-center">
           <Bell className="" />
         </div>
-        <Avatar icon={<User />} />
+        <UserAvatar name="Andrew" role="User" />
       </div>
     </Header>
   );

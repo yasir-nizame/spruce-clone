@@ -6,10 +6,12 @@ interface CLabelInputProps extends FormProps {
   label: string;
   name: string;
   type: string;
+  maxLength?: number;
   placeholder?: string;
   required?: boolean;
   size?: "small" | "middle" | "large";
   rules?: FormItemProps["rules"];
+  disabled?: boolean;
 }
 
 const CLabelInput: React.FC<CLabelInputProps> = ({
@@ -17,9 +19,11 @@ const CLabelInput: React.FC<CLabelInputProps> = ({
   name,
   placeholder,
   type,
+  maxLength,
   size = "large",
   required = false,
   rules = [],
+  disabled = false,
 }) => {
   const defaultRules: FormItemProps["rules"] = required
     ? [{ required: true, message: `Please enter ${label.toLowerCase()}!` }]
@@ -34,6 +38,8 @@ const CLabelInput: React.FC<CLabelInputProps> = ({
         placeholder={placeholder}
         type={type}
         size={size}
+        disabled={disabled}
+        maxLength={maxLength}
       />
     </Form.Item>
   );

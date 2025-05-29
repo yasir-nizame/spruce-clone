@@ -9,6 +9,10 @@ import SignUp from "./pages/auth/registration";
 import { configureAntd } from "../src/utils/antd-config";
 import EnterOTP from "./pages/auth/enter-otp";
 import DashboardCard from "./pages/dashboard/delete/delete";
+import MyProfile from "./pages/dashboard/my-account/my-profile";
+import CouponsPage from "./pages/dashboard/my-account/coupons";
+import PaymentMethod from "./pages/dashboard/my-account/payment-method";
+import PropertyAccessInformation from "./pages/dashboard/my-account/property";
 
 configureAntd();
 function App() {
@@ -30,9 +34,18 @@ function App() {
 
           {/* Dashboard routes */}
           <Route path="/dashboard-card" element={<DashboardCard />} />
+          <Route path="/user-profile" element={<MyProfile />} />
 
           {/* Shared */}
           <Route path="/" element={<Home />} />
+
+          {/* test */}
+          <Route path="/coupons" element={<CouponsPage />} />
+          <Route path="/payment-method" element={<PaymentMethod />} />
+          <Route
+            path="/pet-access-info"
+            element={<PropertyAccessInformation />}
+          />
         </Routes>
       </BrowserRouter>
     </>

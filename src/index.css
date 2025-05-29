@@ -2,8 +2,9 @@
 
 @theme {
   --color-primary: #045d65;
-  --color-secondary: #dbf9f3; 
+  --color-secondary: #dbf9f3;
   --color-gray: #f9f9f9;
+  --color-darkgray: #e7e7e7;
 }
 
 h1,

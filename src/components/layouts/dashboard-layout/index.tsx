@@ -1,6 +1,5 @@
 import React, { useState, type ReactNode } from "react";
 import {
-  Bell,
   CalendarDays,
   ChartPie,
   LogOut,
@@ -11,8 +10,9 @@ import {
 import type { MenuProps } from "antd";
 import { Layout, Menu } from "antd";
 import Cheader from "../../molecules/c-header";
+import DashboardContentLayout from "../../screens/my-profile";
 
-const { Header, Content, Sider } = Layout;
+const { Content, Sider } = Layout;
 
 type MenuItem = Required<MenuProps>["items"][number];
 interface DashboardLayoutProps {
@@ -23,13 +23,13 @@ function getItem(
   label: React.ReactNode,
   key: React.Key,
   icon?: React.ReactNode,
-  children?: MenuItem[]
+  className?: string
 ): MenuItem {
   return {
     key,
     icon,
-    children,
     label,
+    className,
   } as MenuItem;
 }
 
@@ -38,43 +38,41 @@ const items: MenuItem[] = [
   getItem("My Booking", "1", <CalendarDays />),
   getItem("Chat", "2", <MessageSquareMore />),
   getItem("My Account", "3", <User />),
-  getItem("Logout", "4", <LogOut />),
-  //   getItem("Team", "sub2", <TeamOutlined />, [
-  //     getItem("Team 1", "6"),
-  //     getItem("Team 2", "8"),
-  //   ]),
+  getItem("Logout", "4", <LogOut />, "!mt-auto "),
 ];
 
 const DashboardLayout = ({ children }: DashboardLayoutProps) => {
   const [collapsed, setCollapsed] = useState(false);
 
   return (
-    <Layout style={{ minHeight: "100vh" }}>
+    <Layout className="">
       <div className="!bg-white">
         <Sider
-          //   collapsible
           collapsed={collapsed}
           onCollapse={(value) => setCollapsed(value)}
-          className="!bg-white"
+          className="!bg-white !min-w-[322px] !flex !flex-col"
         >
           <img
             src="/logo.png"
-            alt=""
-            className="w-[90px] h-[24px]  mx-auto my-4"
+            alt="logo"
+            className="w-[90px] h-[24px] mx-auto my-4"
           />
-          <Menu
-            theme="light"
-            defaultSelectedKeys={["0"]}
-            mode="inline"
-            items={items}
-            className="!bg-white"
-          />
+          <div className="flex-1 flex flex-col">
+            <Menu
+              theme="light"
+              defaultSelectedKeys={["0"]}
+              mode="inline"
+              className="!bg-white !flex-1 !flex !flex-col"
+              items={items}
+            />
+          </div>
         </Sider>
       </div>
-      <Layout>
+      <Layout className="">
         <Cheader />
-
-        <Content className="">{children}</Content>
+        <DashboardContentLayout>
+          <Content>{children}</Content>
+        </DashboardContentLayout>
       </Layout>
     </Layout>
   );
