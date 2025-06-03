@@ -1,11 +1,9 @@
 import CCouponCard from "../../../../components/atoms/c-couponcard";
 import { Col, Row } from "antd";
-import DashboardLayout from "../../../../components/layouts/dashboard-layout";
 import Cbutton from "../../../../components/atoms/c-button";
 
 const CouponsPage = () => {
   return (
-    <DashboardLayout>
       <div className="bg-white p-4">
         <div className="!flex !justify-end  mb-2 ">
           <Cbutton label="Add Coupons" className="!w-1/8 !py-5" />
@@ -52,7 +50,6 @@ const CouponsPage = () => {
           </Row>
         </div>
       </div>
-    </DashboardLayout>
   );
 };
 

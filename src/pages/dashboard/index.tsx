@@ -1,7 +1,10 @@
 import MyAccount from "./my-account";
 
 const UserDashboard = () => {
-  return <MyAccount />;
+  return;
+  <>
+    <MyAccount />;
+  </>;
 };
 
 export default UserDashboard;

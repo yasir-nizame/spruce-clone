@@ -10,7 +10,7 @@ interface CCreditCardProps {
   last4Digits: string;
   cardType: string;
   isDefault: boolean;
-  onDefaultToggle: () => void;
+  onDefaultToggle?: () => void;
   onDelete: () => void;
 }
 

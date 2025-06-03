@@ -13,6 +13,7 @@ import MyProfile from "./pages/dashboard/my-account/my-profile";
 import CouponsPage from "./pages/dashboard/my-account/coupons";
 import PaymentMethod from "./pages/dashboard/my-account/payment-method";
 import PropertyAccessInformation from "./pages/dashboard/my-account/property";
+import MyAccount from "./pages/dashboard/my-account";
 
 configureAntd();
 function App() {
@@ -35,6 +36,7 @@ function App() {
           {/* Dashboard routes */}
           <Route path="/dashboard-card" element={<DashboardCard />} />
           <Route path="/user-profile" element={<MyProfile />} />
+          <Route path="/my-account" element={<MyAccount />} />
 
           {/* Shared */}
           <Route path="/" element={<Home />} />

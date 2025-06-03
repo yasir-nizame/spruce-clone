@@ -7,6 +7,7 @@ interface CLabelInputProps extends FormProps {
   name: string;
   type: string;
   maxLength?: number;
+  minLength?: number;
   placeholder?: string;
   required?: boolean;
   size?: "small" | "middle" | "large";
@@ -20,6 +21,7 @@ const CLabelInput: React.FC<CLabelInputProps> = ({
   placeholder,
   type,
   maxLength,
+  minLength,
   size = "large",
   required = false,
   rules = [],
@@ -40,6 +42,7 @@ const CLabelInput: React.FC<CLabelInputProps> = ({
         size={size}
         disabled={disabled}
         maxLength={maxLength}
+        minLength={minLength}
       />
     </Form.Item>
   );
